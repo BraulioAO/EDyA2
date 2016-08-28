@@ -1,6 +1,3 @@
-import random
-import time
-
 comps = 0  #Se establece una variable global para llevar las comparaciones
 
 #Función que que compara el primer elemento de las listas y los reordena en otra auxiliar
@@ -40,18 +37,17 @@ def mergeSort(lista):
 
     return merge(listaIzq,listaDer)
 
-def timeElapsed(arr):            #Función para obtener los tiempos de ejecución
-    global comps 
+
+archivo = open("ListaDeArreglos.txt", "r")
+
+for line in archivo.readlines():
+    line = line.replace('[','') #recibimos un String y para volverlo
+    line = line.replace(']','') #arreglo tenemos que elimiar esos chars
+    line = line.split(',')      #para despues separar en un arr de letras
+    line = list(map(int, line)) #y mappearlos o cast a enteros
     comps = 0
-    start_time = time.time()
-    mergeSort(arr)           #Se envia la lista a ordenar
-    elapsed_time = time.time() - start_time
-    print("Tam_list: ", len(arr), "\tTiempo[s]: ", float("{0:.12f}".format(elapsed_time)), "\tComparaciones: ", comps)
-    
-        
-lista = []                      #Lista donde se guardaran los números generados aleatoriamente
-for veces in range(1, 11):                     #veces de iteraciones (1, n+1)
-    for cont in range(500*veces):                # elementos por iteracion (5,10,15,....5*veces)
-        lista.append(random.randrange(-1000, 1000))     #muestreo en rango
-    timeElapsed(lista)                  #llamar función de tiempos de ejecucion
-    lista = [] #Vacia la lista
+    print(mergeSort(line))
+    print("No. de comparaciones: ", comps)
+    print("Tamaño de la lista: ", len(line), "\n")
+
+archivo.close()
