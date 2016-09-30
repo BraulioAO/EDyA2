@@ -1,5 +1,6 @@
 comps = 0
 
+#Separa en elementos mayores y menores respecto al pivote
 def reacomodo(list,piv):
     global comps
     j=0
@@ -35,11 +36,12 @@ def quickSort(list):
 archivo = open("ListaDeArreglos.txt", "r")
 
 for line in archivo.readlines():
-    line = line.replace('[','') #recibimos un String y para volverlo
-    line = line.replace(']','') #arreglo tenemos que elimiar esos chars
-    line = line.split(',')      #para despues separar en un arr de letras
-    line = list(map(int, line)) #y mappearlos o cast a enteros
+    line = line.replace('[','')
+    line = line.replace(']','')
+    line = line.split(',')
+    line = list(map(int, line))
     comps = 0
+    print(line)
     print(quickSort(line))
     print("No. de comparaciones: ", comps)
     print("Tamaño de la lista: ", len(line), "\n")

@@ -27,6 +27,8 @@ def radix(l):
 
 	return l
 
-arr= radix(['hola', 'como', 'vi', 'adios', 'bienvenido', 'jaja', 'diminuto', 'bonito','zarzamora'])
-arr = list(map(lambda elem: elem.replace(chr(96),''), arr))  #Eliminamos el caracter que usamos para normalizar
+arr = ['hola', 'como', 'vi', 'adios', 'dia', 'jaja', 'noche', 'bonito','zarzamora']
 print(arr)
+arrOrd= radix(arr)
+arrOrd = list(map(lambda elem: elem.replace(chr(96),''), arrOrd))  #Eliminamos el caracter que usamos para normalizar
+print(arrOrd)
