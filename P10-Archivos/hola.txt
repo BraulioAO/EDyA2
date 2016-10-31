@@ -1,5 +1,0 @@
-Esta es la primera linea
-esta la tercera
-de un archivo de prueba
-
-Cadena nuevaCadena nuevaCadena nueva
